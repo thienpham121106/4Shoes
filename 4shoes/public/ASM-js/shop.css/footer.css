@@ -1,0 +1,129 @@
+/* --- FOOTER STYLES --- */
+
+/* Thiết lập chung cho footer */
+footer {
+    background-color: #f8f9fa; /* Màu nền xám rất nhạt cho sạch sẽ */
+    color: #333; /* Màu chữ xám đen dễ đọc */
+    padding-top: 50px;
+    padding-bottom: 30px;
+    font-family: Arial, sans-serif;
+    border-top: 4px solid #ee4d2d; /* Viền đỏ trên cùng tạo điểm nhấn thương hiệu */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Tự động xuống dòng trên màn hình nhỏ */
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 30px;
+}
+
+/* --- CHIA CỘT --- */
+/* Cột 1: Giới thiệu (Rộng hơn một chút) */
+.footer-column-1 {
+    flex: 2; /* Chiếm 2 phần */
+    min-width: 300px;
+}
+
+/* Cột 2 & 3: Menu và Fanpage */
+.footer-column-2, 
+.footer-column-3 {
+    flex: 1.5; /* Chiếm 1.5 phần */
+    min-width: 200px;
+}
+
+/* --- TIÊU ĐỀ CỘT (H3) --- */
+footer h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #000;
+    text-transform: uppercase; /* Chữ in hoa mạnh mẽ */
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Tạo gạch chân đỏ dưới tiêu đề */
+footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ee4d2d; /* Màu đỏ Neo Sport */
+}
+
+/* --- NỘI DUNG CỘT 1 (Về chúng tôi) --- */
+.about p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+    text-align: justify;
+}
+
+.address p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+.address strong {
+    color: #000;
+}
+
+/* --- NỘI DUNG CỘT 2 (Menu) --- */
+.footer-column-2 ul {
+    list-style: none; /* Bỏ dấu chấm tròn */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column-2 li {
+    margin-bottom: 12px;
+}
+
+.footer-column-2 a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+    display: inline-block;
+}
+
+/* Hiệu ứng khi di chuột vào link: Đổi màu đỏ + dịch chuyển sang phải */
+.footer-column-2 a:hover {
+    color: #ee4d2d;
+    transform: translateX(5px);
+}
+
+/* --- COPYRIGHT (Thanh dưới cùng) --- */
+.footer-bottom {
+    background-color: #000; /* Nền đen */
+    color: #fff; /* Chữ trắng */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 0; /* Xóa khoảng cách thừa nếu có */
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* --- RESPONSIVE (Cho điện thoại) --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Xếp chồng dọc */
+    }
+    
+    .footer-column-1, 
+    .footer-column-2, 
+    .footer-column-3 {
+        width: 100%; /* Full màn hình */
+        margin-bottom: 30px;
+    }
+}

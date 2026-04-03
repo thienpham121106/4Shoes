@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bảng điều khiển</title>
+  <link rel="stylesheet" href="shop.css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2 class="logo"><i class="fa-solid fa-bolt"></i> Spur</h2>
+    <ul class="menu">
+      <li><i class="fa-solid fa-house"></i> Bảng điều khiển</li>
+      <li><i class="fa-solid fa-chart-bar"></i> Biểu đồ</li>
+      <li><i class="fa-solid fa-cubes"></i> Thành phần</li>
+      <li><i class="fa-solid fa-layer-group"></i> Bố cục</li>
+      <li><i class="fa-solid fa-circle-info"></i> Giới thiệu</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <input type="text" placeholder="Tìm kiếm...">
+      <div class="icons">
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-user"></i>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card blue">
+        <div class="card-info">
+          <h3>Đăng ký mới</h3>
+          <p>114</p>
+          <span><i class="fa-solid fa-user"></i> +25% so với tháng trước</span>
+        </div>
+      </div>
+
+      <div class="card green">
+        <div class="card-info">
+          <h3>Doanh thu</h3>
+          <p>$25,541</p>
+          <span><i class="fa-solid fa-cart-shopping"></i> +17.5% so với tháng trước</span>
+        </div>
+      </div>
+
+      <div class="card red">
+        <div class="card-info">
+          <h3>Vé hỗ trợ mở</h3>
+          <p>5</p>
+          <span><i class="fa-solid fa-phone"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="chart">
+        <div class="chart-header">
+          <h3>Biểu đồ cột</h3>
+        </div>
+        <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6'],datasets:[{label:'Dữ liệu',data:[12,18,5,3,2]}]}}" alt="Biểu đồ">
+      </div>
+
+      <div class="notifications">
+        <h3>Thông báo</h3>
+        <ul>
+          <li><i class="fa-solid fa-comment"></i> Bình luận mới <span>21 ngày trước</span></li>
+          <li><i class="fa-solid fa-comment"></i> Bình luận mới <span>21 ngày trước</span></li>
+          <li><i class="fa-solid fa-comment"></i> Bình luận mới <span>21 ngày trước</span></li>
+        </ul>
+        <a href="#">Xem tất cả</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

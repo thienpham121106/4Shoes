@@ -1,0 +1,378 @@
+/* =========================================
+   1. GLOBAL RESET & CORE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #4e73df;
+    --primary-dark: #224abe;
+    --secondary-color: #858796;
+    --success-color: #1cc88a;
+    --info-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+    --light-bg: #f8f9fc;
+    --dark-text: #5a5c69;
+    --border-color: #e3e6f0;
+    --white: #ffffff;
+    --sidebar-width: 250px;
+}
+
+body {
+    background-color: var(--light-bg);
+    display: flex;
+    min-height: 100vh;
+    color: var(--dark-text);
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* =========================================
+   2. SIDEBAR (THANH BÊN TRÁI)
+   ========================================= */
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, var(--primary-color) 10%, var(--primary-dark) 100%);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.sidebar-brand {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.sidebar-menu {
+    padding-top: 10px;
+}
+
+.nav-item {
+    display: block;
+    padding: 15px 20px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    transition: 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--white);
+    background-color: rgba(255,255,255,0.15);
+    padding-left: 25px; /* Hiệu ứng trượt nhẹ */
+}
+
+.nav-item i {
+    width: 25px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* =========================================
+   3. MAIN CONTENT WRAPPER
+   ========================================= */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - var(--sidebar-width));
+}
+
+/* =========================================
+   4. TOPBAR (THANH ĐẦU TRANG)
+   ========================================= */
+.topbar {
+    height: 70px;
+    background-color: var(--white);
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    background-color: var(--light-bg);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px 0 0 5px;
+    width: 250px;
+    outline: none;
+    transition: width 0.3s;
+}
+.search-box input:focus { width: 300px; background-color: #fff; border: 1px solid #d1d3e2; }
+
+.search-box button {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* User Profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.user-profile span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--light-bg);
+}
+
+/* =========================================
+   5. PAGE CONTENT & CARDS
+   ========================================= */
+.container-fluid {
+    padding: 25px;
+    flex: 1;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.card-header {
+    padding: 15px 20px;
+    background-color: #f8f9fc;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   6. TABLES (DANH SÁCH SẢN PHẨM / USER)
+   ========================================= */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #f8f9fc;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 15px;
+    border-bottom: 2px solid var(--border-color);
+    text-align: left;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+    font-size: 0.95rem;
+}
+
+table tr:hover {
+    background-color: #fafafa;
+}
+
+/* Ảnh trong bảng */
+.col-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Giá tiền */
+.price-tag {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+/* =========================================
+   7. BUTTONS & BADGES
+   ========================================= */
+/* Action Buttons */
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    transition: 0.2s;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-add {
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+.btn-add:hover { background-color: var(--primary-dark); }
+
+.btn-edit { background-color: var(--success-color); }
+.btn-edit:hover { background-color: #17a673; }
+
+.btn-delete { background-color: var(--danger-color); }
+.btn-delete:hover { background-color: #c0392b; }
+
+/* Stock Badges */
+.stock-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+}
+.stock-high { background-color: var(--success-color); }
+.stock-low { background-color: var(--warning-color); color: #333; }
+.stock-out { background-color: var(--danger-color); }
+
+/* =========================================
+   8. FORMS (DÙNG CHUNG CHO PRODUCT & USER)
+   ========================================= */
+/* Form Container Style (Giống xform-neo) */
+.form-container, .xform-neo, .user-form-card {
+    max-width: 600px;
+    margin: 30px auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* Inputs */
+.form-group { margin-bottom: 20px; }
+.xform-label, label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+}
+
+.form-control, .xform-input, .xform-select, .xform-textarea, .user-form-group input, .user-form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d3e2;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.form-control:focus, .xform-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.25);
+    outline: none;
+}
+
+.xform-textarea { min-height: 100px; resize: vertical; }
+
+/* Image Preview */
+.xform-preview {
+    margin-top: 15px;
+    text-align: center;
+    border: 2px dashed #d1d3e2;
+    padding: 10px;
+    border-radius: 6px;
+}
+.xform-preview img { max-height: 150px; border-radius: 5px; }
+
+/* Form Buttons */
+.form-actions, .user-form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.xform-btn, .user-form-actions button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-submit { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); }
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(78, 115, 223, 0.4); }
+
+.btn-cancel { background: var(--secondary-color); color: white; text-align: center; text-decoration: none; padding: 12px; border-radius: 6px;}
+.btn-cancel:hover { background: #6c757d; }
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--white);
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    margin-top: auto;
+}
